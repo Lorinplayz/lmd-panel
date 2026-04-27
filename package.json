@@ -1,0 +1,25 @@
+{
+  "name": "lmd-panel",
+  "version": "1.0.0",
+  "description": "LMD Panel - Full Minecraft Server Management with Custom Backgrounds",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "socket.io": "^4.6.1",
+    "fs-extra": "^11.1.1",
+    "dotenv": "^16.0.3",
+    "cors": "^2.8.5",
+    "uuid": "^9.0.0",
+    "multer": "^1.4.5-lts.1",
+    "compression": "^1.7.4",
+    "helmet": "^7.0.0",
+    "child_process": "^1.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
