@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LMD Panel - Admin Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="app">
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fas fa-cubes"></i>
+                <span>LMD PANEL</span>
+            </div>
+            <nav>
+                <a href="/admin" class="active"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                <a href="/"><i class="fas fa-server"></i> Servers</a>
+                <a href="#" id="customizeBtn"><i class="fas fa-palette"></i> Customize</a>
+            </nav>
+        </aside>
+        
+        <main class="main-content">
+            <header>
+                <h1><i class="fas fa-shield-alt"></i> Admin Dashboard</h1>
+                <div class="header-actions">
+                    <button id="createServerBtn" class="btn-primary"><i class="fas fa-plus"></i> Create Server</button>
+                </div>
+            </header>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <i class="fas fa-server"></i>
+                    <div class="stat-info">
+                        <span class="stat-value" id="totalServers">0</span>
+                        <span class="stat-label">Total Servers</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-play-circle"></i>
+                    <div class="stat-info">
+                        <span class="stat-value" id="runningServers">0</span>
+                        <span class="stat-label">Running</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-users"></i>
+                    <div class="stat-info">
+                        <span class="stat-value" id="totalPlayers">0</span>
+                        <span class="stat-label">Total Players</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="servers-table-container">
+                <table class="servers-table">
+                    <thead>
+                        <tr><th>Server Name</th><th>Port</th><th>Memory</th><th>Status</th><th>Players</th><th>Actions</th></tr>
+                    </thead>
+                    <tbody id="serversList"></tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Create Server Modal -->
+    <div id="createModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header"><h3>Create New Server</h3><span class="close">&times;</span></div>
+            <div class="modal-body">
+                <input type="text" id="serverName" placeholder="Server Name" class="form-input">
+                <input type="number" id="serverPort" placeholder="Port (25565)" class="form-input">
+                <select id="serverMemory" class="form-input">
+                    <option value="1024">1 GB RAM</option>
+                    <option value="2048">2 GB RAM</option>
+                    <option value="4096">4 GB RAM</option>
+                </select>
+            </div>
+            <div class="modal-footer"><button id="confirmCreate" class="btn-primary">Create Server</button></div>
+        </div>
+    </div>
+    
+    <!-- Custom Background Modal -->
+    <div id="customizeModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header"><h3>Customize Background</h3><span class="close-custom">&times;</span></div>
+            <div class="modal-body">
+                <div class="bg-options">
+                    <button class="bg-option" data-type="color" data-value="#0a0e17">Dark Gray</button>
+                    <button class="bg-option" data-type="color" data-value="#1a472a">Dark Green</button>
+                    <button class="bg-option" data-type="color" data-value="#2d3744">Slate Gray</button>
+                </div>
+                <form id="bgUploadForm" enctype="multipart/form-data">
+                    <input type="file" name="background" accept="image/*" id="bgImageInput">
+                    <button type="submit" class="btn-primary">Upload Image</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script src="/js/admin.js"></script>
+</body>
+</html>
